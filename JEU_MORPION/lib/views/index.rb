@@ -5,7 +5,7 @@ class Index
 require_relative '../game'
 
 	def page_accueil
-		puts "\n"*30
+		system "clear"
 		puts "\n\n|		MORPION RUBY ©\n|\n|		Vous êtes dans le menu Principal."
 		puts "|\n|\n|	OPTIONS: \n|\n|\n| - 1 - NEW GAME\n|\n| - 2 - MODE TRICHE\n|\n| - 3 - QUITTER\n|\n| - 4 - Faire un don de 10.000€ au créateur\n|\n|\n|\n|\n|\n|"
 		puts "Tappez votre choix : \nv "
@@ -28,7 +28,7 @@ require_relative '../game'
 	
 
 	def mode_triche
-		puts "\n"*30
+		system "clear"
 		puts "\n\n\nPour tricher et gagner toutes vos games, voici comment faire:\n\n - 1 - Apportes-moi 1000€ dans un sac macdo au 34 rue des Champions 75019.\n - 2 - Ecris: 'Je veux tricher car je suis une merde'"
 		
 		while input_1 = gets.chomp != "Je veux tricher car je suis une merde"
