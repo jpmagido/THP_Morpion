@@ -84,7 +84,7 @@ return "Le Board a été crée."
 			print " >"
 			@player_1_name = gets.chomp
 
-			puts "\n Player 1, quel est ton nom ?"
+			puts "\n Player 2, quel est ton nom ?"
 			print " >"
 			@player_2_name = gets.chomp
 			
