@@ -6,7 +6,7 @@ require_relative '../game'
 
 	def page_accueil
 		system "clear"
-		puts "\n\n|		MORPION RUBY ©\n|\n|		Vous êtes dans le menu Principal."
+		puts "\n\n|		MORPION RUBY ©\n|\n|		Vous êtes dans le menu Principal"
 		puts "|\n|\n|	OPTIONS: \n|\n|\n| - 1 - NEW GAME\n|\n| - 2 - MODE TRICHE\n|\n| - 3 - QUITTER\n|\n| - 4 - Faire un don de 10.000€ au créateur\n|\n|\n|\n|\n|\n|"
 		puts "Tappez votre choix : \nv "
 		choix_menu = gets.chomp
@@ -20,6 +20,8 @@ require_relative '../game'
 			abort
 		elsif choix_menu == "4"
 			puts "Cimer poto, mais gardes ton blé !!"
+			puts "\n 	Press Enter si t'es d'accord :D"
+			gets.chomp
 			page_accueil
 		else
 			page_accueil

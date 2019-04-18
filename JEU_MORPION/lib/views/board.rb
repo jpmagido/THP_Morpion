@@ -4,13 +4,6 @@ require_relative '../game'
 require_relative '../player'
 
 class Board
-	attr_accessor :text_O, :text_X, :text_Z
-
-	def initialize
-		@text_O = "O"
-		@text_X = "X"
-		@text_Z = " "
-	end
 
 	def creation_board
 
@@ -71,6 +64,7 @@ line =
 	@arr_1[3][140] = "2"
 	@arr_1[5][90] = "C"
 	@arr_1[5][140] = "3"
+
 # CREATION GRILLE LECTURE
 
 
@@ -100,11 +94,12 @@ return "Le Board a été crée."
 	end
 
 	def turn
-		puts "\n\n\n\n\n   ***********La partie commence !! ***********"
+		puts "\n\n\n\n\n   *********** La partie commence !! ***********"
 		number_turn = 5
 			while number_turn > 0 
+				number_turn -= 1
 				self.display_board
-				puts "C'est à #{@player_1_name} de jouer avec les 'X'\n Choisis une lettre (masjuscule) et un chiffre."
+				puts "C'est à #{@player_1_name} de jouer avec les 'X'\n Choisis une lettre (majuscule) et un chiffre."
 				puts "Attention, sois pas débile, sinon tu perds ton tour."
 				print " > "
 				choice_player_1 = gets.chomp
@@ -136,10 +131,10 @@ return "Le Board a été crée."
 						self.play_C_3("X")
 						
 					end
-					number_turn -= 1
+					
 				self.display_board
 				break if victory_?("X") == true
-				puts "C'est à #{@player_2_name} de jouer avec les 'O'.\n Choisis une lettre (masjuscule) et un chiffre."
+				puts "C'est à #{@player_2_name} de jouer avec les 'O'.\n Choisis une lettre (majuscule) et un chiffre."
 				puts "Attention, sois pas débile, sinon tu perds ton tour."
 				print " > "
 				choice_player_2 = gets.chomp
@@ -173,7 +168,12 @@ return "Le Board a été crée."
 					break if victory_?("O") == true
 					
 			end
+			if number_turn == 0
+			puts " MATCH NUL \n\n ***FIN DE LA PARTIE***\n\n Press Enter"	
+			
+			else 
 			puts " ***FIN DE LA PARTIE***\n\n Press Enter"
+			end
 			gets.chomp
 
 			Index.new.perform
@@ -238,12 +238,10 @@ return "Le Board a été crée."
 		if @arr_2[1][58] == "#{symbol}" && @arr_2[3][58] == "#{symbol}" && @arr_2[5][58] == "#{symbol}"
 			puts "'#{symbol}' WIN."
 			return true
-		elsif 
 		#VICTOIRE : B1 - B2 - B3
-		@arr_2[1][74] == "#{symbol}" && @arr_2[3][74] == "#{symbol}" && @arr_2[5][74] == "#{symbol}"
+		elsif @arr_2[1][74] == "#{symbol}" && @arr_2[3][74] == "#{symbol}" && @arr_2[5][74] == "#{symbol}"
 			puts "'#{symbol}' WIN."
 			return true
-
 		#VICTOIRE : C1 - C2 - C3
 		elsif @arr_2[1][90] == "#{symbol}" && @arr_2[3][90] == "#{symbol}" && @arr_2[5][90] == "#{symbol}"
 			puts "'#{symbol}' WIN."
@@ -269,7 +267,6 @@ return "Le Board a été crée."
 			puts "'#{symbol}' WIN."
 			return true
 		else
-			puts "La partie continue !!"
 			return false
 		end
 	end
@@ -280,13 +277,6 @@ return "Le Board a été crée."
 		turn
 	end
 end
-
-
-
-
-
-#binding.pry
-#"end of file"
 
 
 
